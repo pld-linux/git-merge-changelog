@@ -3,7 +3,7 @@
 # cd ${PN}; ./configure; make maintainer-clean
 %define	subver	20140223
 %define	rel		1
-Summary:	git "merge" driver for GNU style ChangeLog files
+Summary:	Git merge driver for ChangeLog files
 Name:		git-merge-changelog
 Version:	0.0.0
 Release:	0.%{subver}.%{rel}
@@ -17,13 +17,10 @@ BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The default merge driver of 'git' *always* produces conflicts when
-pulling public modifications into a privately modified ChangeLog file.
-This is because ChangeLog files are always modified at the top; the
-default merge driver has no clue how to deal with this.
-
-This program serves as a 'git' merge driver that avoids these
-problems.
+Git Merge Changelog is a git merge driver for changelogs that combines
+parallel additions to the changelog without generating merge
+conflicts. It can be enabled for specific files by setting appropriate
+git attributes.
 
 %prep
 %setup -qc
